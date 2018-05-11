@@ -33,14 +33,6 @@ const indexRoutes = require("./routes/index");
 const ratingRoutes = require("./routes/ratings");
 const flagRoutes = require("./routes/flags");
 
-const jobRoutesAPI = require("./routes/api/jobs");
-const jobcommentRoutesAPI = require("./routes/api/jobComments");
-const educationRoutesAPI = require("./routes/api/education");
-const educationCommentsRoutesAPI = require("./routes/api/educationComments");
-const apartmentRoutesAPI = require("./routes/api/apartments");
-const apartmentCommentsRoutesAPI = require("./routes/api/apartmentComments");
-const profileRoutesAPI = require("./routes/api/profile");
-
 mongoose.connect(process.env.DATABASEURL);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -92,14 +84,6 @@ app.use("/internships/:id/comments", internshipcommentRoutes);
 app.use("/profile", profileRoutes);
 app.use(ratingRoutes);
 app.use(flagRoutes);
-
-app.use("/api/v1/jobs", jobRoutesAPI);
-app.use("/api/v1/jobs/:id/comments", jobcommentRoutesAPI);
-app.use("/api/v1/education", educationRoutesAPI);
-app.use("/api/v1/education/:id/comments", educationCommentsRoutesAPI);
-app.use("/api/v1/apartments", apartmentRoutesAPI);
-app.use("/api/v1/apartments/:id/comments", apartmentCommentsRoutesAPI);
-app.use("/api/v1/profile", profileRoutesAPI);
 
 app.use(indexRoutes);
 
